@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Xiaohongshu Mobile View",
+  "version": "1.0",
+  "description": "Toggle mobile view and capture screenshots on xiaohongshu.com",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://*.xiaohongshu.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.xiaohongshu.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end"
+    }
+  ]
+}
